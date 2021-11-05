@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+function validate(){
+    var name=document.stud_form.Name;
+    var name=document.stud_form.Email;
+    var name=document.stud_form.Mobile;
+    var name=document.stud_form.Gender;
+    var name=document.stud_form.Course;
+    var name=document.stud_form.program;
+    if(name.value.length<=0){
+        alert("Name is required")
+        Name.focus()
+        return false;
+    }
+    if(Mobile.value.length<=0){
+        alert("Mobile no is required")
+        Mobile.focus()
+        return false;
+    }
+    if(Email.value.length<=0){
+        alert("Email is required")
+        Email.focus()
+        return false;
+    }
+    if(Gender.value.length<=0){
+        alert("Gender is required")
+        Gender.focus()
+        return false;
+    }
+    if(Course.value=="Select"){
+        alert("Email is required")
+        Gender.focus()
+        return false;
+    }
+    var check=false;
+    for(var i=program.length-1;i>=0;i--)
+    if(batch[i].checked){
+        check=true;
+    }
+    if(check==false){
+        alert("Program is required")
+        return false;
+    }
+}
+function validateString(id){
+    var element=document.getElementById(id);
+    var regExp=/^[a-zA-z ]+$/;
+    if(!regExp.test(element.value)){
+        alert("enter String value")
+        return false;
+    }
+}
+function validateEmail(id){
+    var element=document.getElementById(id);
+    var regExp=/^[a-zA-z0-9._]+@[a-zA-Z0-9._]+\.[a-zA-Z]{2,4}$/;
+    if(!regExp.test(element.value)){
+        alert("enter valid email")
+        return false;
+    }
+}
+    </script>
+</head>
+<body>
+    <h1> Signup Form</h1>
+    <hr>
+    <h2> Student Form</h2>
+    <form method="action"name="stud_form"onsubmit="return validate()">
+    <table>
+        <tr>
+            <td><lable>Name:</lable></td>
+            <td><input type="text" name="Name" id="Name" maxlength="15" onblur="validateString(this.id)"></td>
+        </tr>
+        <tr>
+            <td><lable>Mobile:</lable></td>
+            <td><input type="number" name="Mobile" maxlength="11" ></td>
+        </tr>
+        <tr>
+            <td><lable>Email:</lable></td>
+            <td><input type="text" name="Email" id="Email" onblur="validateEmail(this.id)"></td>
+        </tr>
+        <tr>
+            <td><lable>Gender:</lable></td>
+            <td><input type="radio" name="Gender" value="Male"> Male</td>
+            <td><input type="radio" name="Gender" value="Female" >Female</td>
+        </tr>
+        <tr>
+            <td><lable>Course:</lable></td>
+            <td><select name="Course">
+                <option>Select</option>
+                <option>HTML</option>
+                <option>CSS</option>
+                <option>JavaScript</option>
+            </select></td>
+        </tr>
+        <tr>
+            <td><lable>SelectProgram:</lable></td>
+            <td>
+                <input type="checkbox" name="program">BSCS
+                <input type="checkbox" name="program">BSSE
+                <input type="checkbox" name="program">BBA
+            </td>
+        </tr>
+        <tr>
+            <td><input type="submit" name="submit" value="submit"></td>
+            <td><input type="reset" name="reset" value="reset"></td>
+        </tr>
+    </table>
+</form>
+    
+</body>
+</html>
